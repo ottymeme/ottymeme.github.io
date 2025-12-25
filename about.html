@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Otty meme – About</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        Otty: { DEFAULT:"#8B5E3C", light:"#D4A373", dark:"#6F4528" },
+        water:{ light:"#E0F7FA", dark:"#0F172A" }
+      },
+      fontFamily:{ display:["Chewy","cursive"], body:["Fredoka","sans-serif"] },
+      animation:{ float:"float 6s ease-in-out infinite" },
+      keyframes:{
+        float:{ "0%,100%":{transform:"translateY(0)"},"50%":{transform:"translateY(-20px)"} }
+      }
+    }
+  }
+};
+</script>
+
+<style>
+.fish{
+  position:fixed;
+  top:-40px;
+  font-size:24px;
+  pointer-events:none;
+  z-index:5;
+  animation:fall linear forwards
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+</style>
+</head>
+
+<body class="bg-water-light dark:bg-water-dark text-slate-800 dark:text-gray-100 font-body min-h-screen overflow-x-hidden transition-colors duration-300">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full z-50 pt-4 px-4">
+<div class="max-w-6xl mx-auto bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-full px-6 py-3 flex justify-between items-center border-2 border-white/50 dark:border-slate-700 shadow-lg">
+
+<div class="flex items-center gap-2">
+<span class="text-3xl">🦦</span>
+<span class="font-display text-2xl text-Otty dark:text-Otty-light">Otty meme</span>
+</div>
+
+<div class="hidden md:flex gap-6 font-medium">
+<a href="index.html" class="hover:text-Otty">Home</a>
+<a href="about.html" class="hover:text-Otty">About</a>
+<a href="tokenomics.html" class="hover:text-Otty">Tokenomics</a>
+<a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
+</div>
+
+<!-- TOGGLE BUTTON -->
+<button
+  class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+  onclick="document.documentElement.classList.toggle('dark')"
+>
+  <span class="material-symbols-outlined text-amber-500 block dark:hidden">light_mode</span>
+  <span class="material-symbols-outlined text-slate-300 hidden dark:block">dark_mode</span>
+</button>
+
+</div>
+</nav>
+
+<!-- MAIN -->
+<main class="pt-40 text-center px-4 relative z-10">
+<h1 class="font-display text-6xl md:text-8xl">About Otty</h1>
+
+<p class="mt-6 max-w-3xl mx-auto text-xl md:text-2xl text-slate-600 dark:text-slate-300 leading-relaxed">
+Otty is a playful, community-driven meme token inspired by internet culture,
+creativity, and simple fun on the blockchain.
+</p>
+
+<!-- OTTY IMAGE -->
+<div class="relative mt-10 max-w-xl mx-auto">
+  <div class="absolute inset-0 bg-gradient-to-t from-blue-400/30 via-purple-400/20 to-transparent rounded-full blur-3xl"></div>
+  <img src="otty.png"
+       alt="Otty Mascot"
+       class="relative z-10 mx-auto max-h-[360px] animate-float drop-shadow-2xl"/>
+</div>
+</main>
+
+<!-- 🐟 FISH RAIN -->
+<script>
+const fishes=["🐟","🐠","🐡"];
+setInterval(()=>{
+ const f=document.createElement("div");
+ f.className="fish";
+ f.textContent=fishes[Math.floor(Math.random()*fishes.length)];
+ f.style.left=Math.random()*100+"vw";
+ f.style.animationDuration=5+Math.random()*5+"s";
+ document.body.appendChild(f);
+ setTimeout(()=>f.remove(),10000);
+},900);
+</script>
+
+<img 
+  src="grass.png"
+  alt="Grass"
+  class="absolute bottom-0 left-0 w-full h-[160px] object-cover pointer-events-none z-50"
+/>
+</div>
+
+</body>
+</html>
