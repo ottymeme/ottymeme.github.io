@@ -112,12 +112,20 @@ tailwind.config = {
 <span class="text-2xl font-display text-Otty dark:text-Otty-light tracking-wide pt-1">Otty meme</span>
 </div>
 
+<!-- Desktop Menu -->
 <div class="hidden md:flex items-center gap-8 font-medium text-lg text-slate-600 dark:text-slate-300">
-<a class="hover:text-Otty transition-colors" href="index.html">Home</a>
-<a class="hover:text-Otty transition-colors" href="about.html">About</a>
-<a class="hover:text-Otty transition-colors" href="tokenomics.html">Tokenomics</a>
-<a class="hover:text-Otty transition-colors" href="roadmap.html">Roadmap</a>
+  <a href="index.html" class="hover:text-Otty">Home</a>
+  <a href="about.html" class="hover:text-Otty">About</a>
+  <a href="tokenomics.html" class="hover:text-Otty">Tokenomics</a>
+  <a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
 </div>
+
+<!-- Mobile Menu Button -->
+<button
+  class="md:hidden p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
+  onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+  ☰
+</button>
 
 <div class="flex items-center gap-3">
 <button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
