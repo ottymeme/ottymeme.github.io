@@ -120,6 +120,14 @@ tailwind.config = {
   <a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
 </div>
 
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined dark:hidden">light_mode</span>
+<span class="material-symbols-outlined hidden dark:block">dark_mode</span>
+</button>
+</div>
+
 <!-- Mobile Menu Button -->
 <button
   class="md:hidden p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
@@ -128,13 +136,7 @@ tailwind.config = {
 </button>
 
 
-<div class="flex items-center gap-3">
-<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-onclick="document.documentElement.classList.toggle('dark')">
-<span class="material-symbols-outlined dark:hidden">light_mode</span>
-<span class="material-symbols-outlined hidden dark:block">dark_mode</span>
-</button>
-</div>
+
 
 </div>
 </div>
