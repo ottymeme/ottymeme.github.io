@@ -127,6 +127,7 @@ tailwind.config = {
   ☰
 </button>
 
+
 <div class="flex items-center gap-3">
 <button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
 onclick="document.documentElement.classList.toggle('dark')">
@@ -138,6 +139,17 @@ onclick="document.documentElement.classList.toggle('dark')">
 </div>
 </div>
 </nav>
+
+<!-- Mobile Menu (added only for mobile, no layout change) -->
+<div id="mobileMenu"
+     class="hidden fixed top-24 left-0 w-full bg-white dark:bg-slate-900 z-50 md:hidden shadow-lg">
+  <div class="flex flex-col items-center gap-6 py-8 text-xl font-medium">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="roadmap.html">Roadmap</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <main class="relative z-10 flex-grow flex items-center justify-center pt-32 pb-12 lg:pt-40">
@@ -192,6 +204,13 @@ setInterval(createFish, 800);
   class="absolute bottom-0 left-0 w-full h-[200px] object-cover pointer-events-none z-50"
 />
 </div>
+<script>
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.add('hidden');
+  });
+});
+</script>
 
 
 </body>
