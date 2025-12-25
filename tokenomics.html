@@ -90,17 +90,15 @@ tailwind.config = {
 
 <!-- NAVBAR (UNCHANGED DESIGN) -->
 
-<!-- Mobile Menu (added only for mobile, no layout change) -->
-<div id="mobileMenu"
-     class="hidden fixed top-24 left-0 w-full bg-white dark:bg-slate-900 z-50 md:hidden shadow-lg">
-  <div class="flex flex-col items-center gap-6 py-8 text-xl font-medium">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tokenomics.html">Tokenomics</a>
-    <a href="roadmap.html">Roadmap</a>
-  </div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex items-center gap-8 font-medium text-lg text-slate-600 dark:text-slate-300">
+  <a href="index.html" class="hover:text-Otty">Home</a>
+  <a href="about.html" class="hover:text-Otty">About</a>
+  <a href="tokenomics.html" class="hover:text-Otty">Tokenomics</a>
+  <a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
 </div>
 
+<!-- Mobile Menu Button -->
 <button
   class="md:hidden p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
   onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
