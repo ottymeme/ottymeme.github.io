@@ -49,23 +49,6 @@ tailwind.config = {
 <body class="bg-water-light dark:bg-water-dark text-slate-800 dark:text-gray-100 font-body min-h-screen overflow-x-hidden transition-colors duration-300">
 
 <!-- NAVBAR -->
-
-
-<!-- Desktop Menu -->
-<div class="hidden md:flex items-center gap-8 font-medium text-lg text-slate-600 dark:text-slate-300">
-  <a href="index.html" class="hover:text-Otty">Home</a>
-  <a href="about.html" class="hover:text-Otty">About</a>
-  <a href="tokenomics.html" class="hover:text-Otty">Tokenomics</a>
-  <a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
-</div>
-
-<!-- Mobile Menu Button -->
-<button
-  class="md:hidden p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
-  onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
-  ☰
-</button>
-
 <nav class="fixed top-0 w-full z-50 pt-4 px-4">
 <div class="max-w-6xl mx-auto bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-full px-6 py-3 flex justify-between items-center border-2 border-white/50 dark:border-slate-700 shadow-lg">
 
@@ -131,13 +114,6 @@ setInterval(()=>{
   class="absolute bottom-0 left-0 w-full h-[160px] object-cover pointer-events-none z-50"
 />
 </div>
-<script>
-document.querySelectorAll('#mobileMenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.add('hidden');
-  });
-});
-</script>
 
 </body>
 </html>

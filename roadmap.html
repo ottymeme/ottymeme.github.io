@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 
 <script>
 tailwind.config = {
@@ -18,86 +18,82 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        Otty: {
-          light: "#D4A373",
-          DEFAULT: "#8B5E3C",
-          dark: "#6F4528",
+        Otty:{light:"#D4A373",DEFAULT:"#8B5E3C",dark:"#6F4528"},
+        water:{light:"#E0F7FA",dark:"#0F172A"}
+      },
+      fontFamily:{
+        display:["Chewy","cursive"],
+        body:["Fredoka","sans-serif"]
+      },
+      animation:{
+        float:"float 6s ease-in-out infinite",
+        wiggle:"wiggle 2s ease-in-out infinite"
+      },
+      keyframes:{
+        float:{
+          "0%,100%":{transform:"translateY(0)"},
+          "50%":{transform:"translateY(-20px)"}
         },
-        water: {
-          light: "#E0F7FA",
-          DEFAULT: "#4FD1C5",
-          dark: "#0F172A",
-        }
-      },
-      fontFamily: {
-        display: ["Chewy", "cursive"],
-        body: ["Fredoka", "sans-serif"],
-      },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'wiggle': 'wiggle 2s ease-in-out infinite',
-        'bounce-slow': 'bounce 3s infinite',
-      },
-      keyframes: {
-        float: {
-          '0%,100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-        wiggle: {
-          '0%,100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
+        wiggle:{
+          "0%,100%":{transform:"rotate(-3deg)"},
+          "50%":{transform:"rotate(3deg)"}
         }
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style>
-.text-stroke {
-  -webkit-text-stroke: 2px #fff;
+.fish{
+  position:fixed;
+  top:-40px;
+  font-size:24px;
+  pointer-events:none;
+  z-index:30;
+  animation:fish-fall linear forwards;
 }
-.dark .text-stroke {
-  -webkit-text-stroke: 2px #1e293b;
-}
-
-/* 🐟 Fish rain */
-.fish {
-  position: fixed;
-  top: -40px;
-  font-size: 24px;
-  pointer-events: none;
-  z-index: 5;
-  animation: fish-fall linear forwards;
-}
-@keyframes fish-fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
+@keyframes fish-fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
 </style>
 </head>
 
-<body class="bg-water-light dark:bg-water-dark text-slate-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col overflow-x-hidden relative selection:bg-Otty selection:text-white">
+<body class="relative bg-water-light dark:bg-water-dark text-slate-800 dark:text-gray-100 font-body transition-colors duration-300 min-h-screen flex flex-col overflow-x-hidden selection:bg-Otty selection:text-white">
 
 <!-- BACKGROUND BLOBS -->
-<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-  <div class="absolute -top-10 left-1/4 w-96 h-96 bg-blue-300/40 dark:bg-blue-600/20 rounded-full blur-[100px] animate-pulse"></div>
-  <div class="absolute top-1/3 -right-20 w-80 h-80 bg-orange-200/40 dark:bg-orange-600/20 rounded-full blur-[100px] animate-float" style="animation-delay:1s;"></div>
-  <div class="absolute -bottom-20 left-20 w-72 h-72 bg-teal-200/40 dark:bg-teal-600/20 rounded-full blur-[100px] animate-float" style="animation-delay:2s;"></div>
+<div class="fixed inset-0 z-0 pointer-events-none">
+  <div class="absolute -top-10 left-1/4 w-96 h-96 bg-blue-300/40 dark:bg-blue-600/20 rounded-full blur-[100px]"></div>
+  <div class="absolute top-1/3 -right-20 w-80 h-80 bg-orange-200/40 dark:bg-orange-600/20 rounded-full blur-[100px]"></div>
+  <div class="absolute -bottom-20 left-20 w-72 h-72 bg-teal-200/40 dark:bg-teal-600/20 rounded-full blur-[100px]"></div>
 </div>
 
-<!-- NAVBAR -->
+<!-- NAVBAR (SAME AS INDEX) -->
+<nav class="fixed top-0 w-full z-40 pt-4 px-4">
+<div class="container mx-auto max-w-6xl">
+<div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-full px-6 py-3 border-2 border-white/50 dark:border-slate-700 shadow-lg flex justify-between items-center">
 
+<div class="flex items-center gap-2 cursor-pointer group hover:scale-105 transition-transform">
+<span class="text-3xl group-hover:animate-wiggle">🦦</span>
+<span class="text-2xl font-display text-Otty dark:text-Otty-light tracking-wide pt-1">Otty meme</span>
+</div>
 
 <!-- Desktop Menu -->
 <div class="hidden md:flex items-center gap-8 font-medium text-lg text-slate-600 dark:text-slate-300">
-  <a href="index.html" class="hover:text-Otty">Home</a>
-  <a href="about.html" class="hover:text-Otty">About</a>
-  <a href="tokenomics.html" class="hover:text-Otty">Tokenomics</a>
-  <a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
+<a href="index.html" class="hover:text-Otty">Home</a>
+<a href="about.html" class="hover:text-Otty">About</a>
+<a href="tokenomics.html" class="hover:text-Otty">Tokenomics</a>
+<a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
 </div>
+
+<div class="flex items-center gap-3">
+
+<!-- Toggle -->
+<button onclick="document.documentElement.classList.toggle('dark')"
+class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined dark:hidden">light_mode</span>
+<span class="material-symbols-outlined hidden dark:block">dark_mode</span>
+</button>
 
 <!-- Mobile Menu Button -->
 <button
@@ -106,52 +102,36 @@ tailwind.config = {
   ☰
 </button>
 
-<nav class="fixed top-0 w-full z-50 pt-4 px-4">
-<div class="container mx-auto max-w-6xl">
-<div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-full px-6 py-3 border-2 border-white/50 dark:border-slate-700 shadow-lg shadow-blue-500/5 flex justify-between items-center">
-
-<div class="flex items-center gap-2 cursor-pointer group hover:scale-105 transition-transform">
-<span class="text-3xl group-hover:animate-wiggle">🦦</span>
-<span class="text-2xl font-display text-Otty dark:text-Otty-light tracking-wide pt-1">Otty meme</span>
 </div>
-
-<div class="hidden md:flex items-center gap-8 font-medium text-lg text-slate-600 dark:text-slate-300">
-<a class="hover:text-Otty transition-colors" href="index.html">Home</a>
-<a class="hover:text-Otty transition-colors" href="about.html">About</a>
-<a class="hover:text-Otty transition-colors" href="tokenomics.html">Tokenomics</a>
-<a class="hover:text-Otty transition-colors" href="roadmap.html">Roadmap</a>
-</div>
-
-<!-- TOGGLE -->
-<button
-  class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-  onclick="document.documentElement.classList.toggle('dark')"
->
-  <span class="material-symbols-outlined text-amber-500 block dark:hidden">light_mode</span>
-  <span class="material-symbols-outlined text-slate-300 hidden dark:block">dark_mode</span>
-</button>
-
 </div>
 </div>
 </nav>
 
-<!-- MAIN -->
-<main class="relative z-10 flex-grow flex items-center justify-center pt-32 pb-12 lg:pt-40">
+<!-- MOBILE MENU (NEW, NO DESIGN CHANGE) -->
+<div id="mobileMenu"
+     class="hidden md:hidden fixed top-24 left-0 w-full bg-white dark:bg-slate-900 z-50 shadow-lg">
+  <div class="flex flex-col items-center gap-6 py-8 text-xl font-medium text-slate-700 dark:text-slate-200">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="tokenomics.html">Tokenomics</a>
+    <a href="roadmap.html">Roadmap</a>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="relative z-20 flex-grow flex items-center justify-center pt-32 pb-24 lg:pt-40">
 <div class="container mx-auto px-4 text-center">
 
-<div class="flex flex-col items-center gap-10">
-
-<h1 class="font-display text-6xl md:text-8xl text-slate-800 dark:text-white">
+<h1 class="font-display text-6xl md:text-8xl">
 Roadmap
 </h1>
 
-<p class="font-body text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl">
+<p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
 A simple, flexible path focused on memes and community.
 </p>
 
-
 <!-- ROADMAP CARDS -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 max-w-5xl w-full">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
 
 <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-white/50 dark:border-slate-700">
 <h3 class="font-display text-3xl text-Otty mb-3">Phase 1</h3>
@@ -171,7 +151,6 @@ A simple, flexible path focused on memes and community.
 </ul>
 </div>
 
-
 <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border-2 border-white/50 dark:border-slate-700">
 <h3 class="font-display text-3xl text-Otty mb-3">Phase 3</h3>
 <ul class="space-y-2 text-lg">
@@ -183,47 +162,37 @@ A simple, flexible path focused on memes and community.
 
 </div>
 
-</div>
-</div>
-</main>
-
-<!-- 🐟 FISH RAIN -->
-<script>
-const fishes = ["🐟","🐠","🐡"];
-setInterval(() => {
-  const fish = document.createElement("div");
-  fish.className = "fish";
-  fish.textContent = fishes[Math.floor(Math.random() * fishes.length)];
-  fish.style.left = Math.random() * 100 + "vw";
-  fish.style.animationDuration = 5 + Math.random() * 5 + "s";
-  document.body.appendChild(fish);
-  setTimeout(() => fish.remove(), 10000);
-}, 800);
-</script>
-
 <!-- OTTY IMAGE -->
-<div class="relative w-full max-w-xl mx-auto mt-4">
+<div class="relative w-full max-w-xl mx-auto mt-14">
   <div class="absolute inset-0 bg-gradient-to-t from-blue-400/30 via-purple-400/20 to-transparent rounded-full blur-3xl"></div>
   <img src="otty.png"
        alt="Otty Mascot"
        class="relative z-10 mx-auto max-h-[360px] animate-float drop-shadow-2xl"/>
 </div>
 
-<img 
-  src="grass.png"
-  alt="Grass"
-  class="absolute bottom-0 left-0 w-full h-[200px] object-cover pointer-events-none z-50"
-/>
+</div>
+</main>
+
+<!-- GRASS (SCROLLS NATURALLY) -->
+<div class="relative w-full h-[220px] overflow-hidden z-10">
+  <img src="grass.png"
+       alt="Grass"
+       class="absolute bottom-0 left-0 w-full h-full object-cover pointer-events-none"/>
 </div>
 
+<!-- 🐟 FISH RAIN -->
 <script>
-document.querySelectorAll('#mobileMenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.add('hidden');
-  });
-});
+const fishes=["🐟","🐠","🐡"];
+setInterval(()=>{
+ const f=document.createElement("div");
+ f.className="fish";
+ f.textContent=fishes[Math.floor(Math.random()*fishes.length)];
+ f.style.left=Math.random()*100+"vw";
+ f.style.animationDuration=5+Math.random()*5+"s";
+ document.body.appendChild(f);
+ setTimeout(()=>f.remove(),10000);
+},800);
 </script>
-
 
 </body>
 </html>
