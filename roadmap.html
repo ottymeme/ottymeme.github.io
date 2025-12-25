@@ -68,63 +68,57 @@ tailwind.config = {
   <div class="absolute -bottom-20 left-20 w-72 h-72 bg-teal-200/40 dark:bg-teal-600/20 rounded-full blur-[100px]"></div>
 </div>
 
-<!-- NAVBAR (SAME AS INDEX) -->
+<!-- NAVBAR -->
 <nav class="fixed top-0 w-full z-40 pt-4 px-4">
 <div class="container mx-auto max-w-6xl">
 <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-full px-6 py-3 border-2 border-white/50 dark:border-slate-700 shadow-lg flex justify-between items-center">
 
 <div class="flex items-center gap-2 cursor-pointer group hover:scale-105 transition-transform">
 <span class="text-3xl group-hover:animate-wiggle">🦦</span>
-<span class="text-2xl font-display text-Otty dark:text-Otty-light tracking-wide pt-1">Otty meme</span>
+<span class="text-2xl font-display text-Otty tracking-wide pt-1">Otty meme</span>
 </div>
 
-<!-- Desktop Menu -->
-<div class="hidden md:flex items-center gap-8 font-medium text-lg text-slate-600 dark:text-slate-300">
-<a href="index.html" class="hover:text-Otty">Home</a>
-<a href="about.html" class="hover:text-Otty">About</a>
-<a href="tokenomics.html" class="hover:text-Otty">Tokenomics</a>
-<a href="roadmap.html" class="hover:text-Otty">Roadmap</a>
+<div class="hidden md:flex items-center gap-8 font-medium text-lg">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="tokenomics.html">Tokenomics</a>
+<a href="roadmap.html">Roadmap</a>
 </div>
 
 <div class="flex items-center gap-3">
-
-<!-- Toggle -->
 <button onclick="document.documentElement.classList.toggle('dark')"
 class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
 <span class="material-symbols-outlined dark:hidden">light_mode</span>
 <span class="material-symbols-outlined hidden dark:block">dark_mode</span>
 </button>
 
-<!-- Mobile Menu Button -->
 <button
   class="md:hidden p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
   onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
   ☰
 </button>
-
 </div>
+
 </div>
 </div>
 </nav>
 
-<!-- MOBILE MENU (NEW, NO DESIGN CHANGE) -->
+<!-- MOBILE MENU -->
 <div id="mobileMenu"
-     class="hidden md:hidden fixed top-24 left-0 w-full bg-white dark:bg-slate-900 z-50 shadow-lg">
-  <div class="flex flex-col items-center gap-6 py-8 text-xl font-medium text-slate-700 dark:text-slate-200">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="tokenomics.html">Tokenomics</a>
-    <a href="roadmap.html">Roadmap</a>
-  </div>
+class="hidden md:hidden fixed top-24 left-0 w-full bg-white dark:bg-slate-900 z-50 shadow-lg">
+<div class="flex flex-col items-center gap-6 py-8 text-xl font-medium">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="tokenomics.html">Tokenomics</a>
+<a href="roadmap.html">Roadmap</a>
+</div>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <main class="relative z-20 flex-grow flex items-center justify-center pt-32 pb-24 lg:pt-40">
 <div class="container mx-auto px-4 text-center">
 
-<h1 class="font-display text-6xl md:text-8xl">
-Roadmap
-</h1>
+<h1 class="font-display text-6xl md:text-8xl">Roadmap</h1>
 
 <p class="mt-6 text-xl md:text-2xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
 A simple, flexible path focused on memes and community.
@@ -162,23 +156,26 @@ A simple, flexible path focused on memes and community.
 
 </div>
 
-<!-- OTTY IMAGE -->
-<div class="relative w-full max-w-xl mx-auto mt-14">
+<!-- OTTY + FULL-WIDTH GRASS -->
+<div class="relative w-full max-w-xl mx-auto mt-16">
+
   <div class="absolute inset-0 bg-gradient-to-t from-blue-400/30 via-purple-400/20 to-transparent rounded-full blur-3xl"></div>
-  <img src="otty.png"
-       alt="Otty Mascot"
-       class="relative z-10 mx-auto max-h-[360px] animate-float drop-shadow-2xl"/>
+
+  <div class="relative mx-auto w-fit">
+    <img src="otty.png"
+         alt="Otty Mascot"
+         class="relative z-10 mx-auto max-h-[1200px] animate-float drop-shadow-2xl"/>
+
+    <!-- FINAL GRASS FIX -->
+    <img src="grass.png"
+         alt="Grass"
+         class="absolute bottom-[-460px] left-1/2 -translate-x-1/2 w-screen max-w-none pointer-events-none z-20"/>
+  </div>
+
 </div>
 
 </div>
 </main>
-
-<!-- GRASS (SCROLLS NATURALLY) -->
-<div class="relative w-full h-[220px] overflow-hidden z-10">
-  <img src="grass.png"
-       alt="Grass"
-       class="absolute bottom-0 left-0 w-full h-full object-cover pointer-events-none"/>
-</div>
 
 <!-- 🐟 FISH RAIN -->
 <script>
